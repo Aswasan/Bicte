@@ -439,13 +439,9 @@ header nav .dropdown-menu li a {
     font-size: 16px;
     display: block;
 }
-
-
-
 header nav .dropdown-menu li a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
-
 /* Show dropdown on hover (desktop) */
 @media (min-width: 769px) {
     header nav .dropdown:hover .dropdown-menu {
@@ -535,11 +531,11 @@ header nav .dropdown.active .arrow {
             <ul id="nav-list">
                 <li><a href="Bicte.html">Home</a></li>
                 <li class="dropdown">
-                    <a href="syllabus">Syllabus</a><span class="arrow" onclick="toggleDropdown(event)">&#9662;</span>
+                    <a href="syllabus.html">Syllabus</a><span class="arrow" onclick="toggleDropdown(event)">&#x25BC;</span>
                     <ul class="dropdown-menu">
-                        <li><a href="syllabus1.html">1st sem</a></li>
-                        <li><a href="syllabus2.html">2nd sem</a></li>
-                        <li><a href="syllabus3.html">3rd sem</a></li>
+                        <li><a href="1st.html">1st sem</a></li>
+                        <li><a href="2nd.html">2nd sem</a></li>
+                        <li><a href="3rd.html">3rd sem</a></li>
                     </ul>
                 </li>
                 <li><a href="notes.html">Notes</a></li>
@@ -708,6 +704,25 @@ window.location.href = mailtoLink;
         return false; // Prevent form submission if the message is empty
         }
 }
+     // Automatically close the menu when switching to a larger screen
+     window.addEventListener('resize', function() {
+            const navList = document.getElementById('nav-list');
+            if (window.innerWidth > 768 && navList.classList.contains('active')) {
+                navList.classList.remove('active'); // Remove active class on resize to larger screen
+            }
+        });
+       // Close the menu if clicked anywhere outside the menu or logo
+document.addEventListener('click', function(event) {
+    const navList = document.getElementById('nav-list');
+    const menuButton = document.querySelector('.menu-toggle');
+    const logo = document.querySelector('.logo');
+
+    // Check if the click is outside the nav menu and the menu button
+    if (!navList.contains(event.target) && !menuButton.contains(event.target) && !logo.contains(event.target)) {
+        navList.classList.remove('active'); // Close the menu
+    }
+});
+
     </script>
 
 <footer>

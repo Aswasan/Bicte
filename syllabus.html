@@ -256,7 +256,7 @@ p{
         cursor: pointer;
         font-size: 16px;
         margin-top: 5px;
-        margin-left: 75%;
+        margin-left: 68%;
     }
 
     .grid-item button:hover {
@@ -280,6 +280,7 @@ p{
     font-size: 24px;
   
 }
+
 ::-webkit-scrollbar {
     width: 12px; /* Adjust the width for vertical scrollbar */
     height: 6px; /* Adjust the height for horizontal scrollbar */
@@ -361,7 +362,7 @@ footer hr{
         <h1 style="font-family: Open Sans, sans-serif;
         font-optical-sizing: auto;">
         Bachelor of Information Communication and Technology Education</h1><br>
-        <a href="choose.html"class="subhead">Home </a>   //  <a href="syllabus.html" class="subhead">Syllabus</a><br><br>
+        <a href="Bicte.html"class="subhead">Home </a>   //  <a href="syllabus.html" class="subhead">Syllabus</a><br><br>
         <div class="grid-container">
             <!-- Grid items -->
             <div class="grid-item">
@@ -483,7 +484,18 @@ footer hr{
                 navList.classList.remove('active'); // Remove active class on resize to larger screen
             }
         });
-       
+       // Close the menu if clicked anywhere outside the menu or logo
+document.addEventListener('click', function(event) {
+    const navList = document.getElementById('nav-list');
+    const menuButton = document.querySelector('.menu-toggle');
+    const logo = document.querySelector('.logo');
+
+    // Check if the click is outside the nav menu and the menu button
+    if (!navList.contains(event.target) && !menuButton.contains(event.target) && !logo.contains(event.target)) {
+        navList.classList.remove('active'); // Close the menu
+    }
+});
+
     </script>
     <footer>
        <hr>
